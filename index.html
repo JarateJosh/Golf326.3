@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        .menuitem {
+            padding: 8px;
+            margin-top: 7px;
+            border-bottom: 1px solid #2291ec;
+        }
+        
+        .left {
+            background-color: rgb(116, 226, 116);
+            float: left;
+            width: 30%;
+            padding: 10px 15px;
+            margin-top: 7px;
+        }
+        
+        .main {
+            float: left;
+            width: 70%;
+            padding: 0px 20px;
+            overflow: hidden;
+        }
+        
+        @media only screen and (max-width:800px) {
+            /* For tablets: */
+            .main {
+                width: 80%;
+                padding: 0;
+            }
+            .left {
+                width: 100%;
+            }
+        }
+        
+        @media only screen and (max-width:500px) {
+            /* For mobile phones: */
+            .menu,
+            .main,
+            .left {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body style="font-family:Verdana;">
+
+    <section style="background-color:#8fc4f0;padding:15px;">
+        <h1>2021 Saint Michael the Archangel Catholic Church Golf Scramble</h1><br>
+        <p>Come join us for the St. Michael the Archangel Knights of Columbus Council 11768 Scholarship Golf Scramble. We will have a great – and challenging – day of golf at the challenging Woodmont Golf and Country Club.</p><br>
+        <p>Knights of Columbus - Saint Michael the Archangel Council 11768</p><br>
+    </section>
+
+    <section style="overflow:auto">
+
+        <section class="left">
+            <h2>What:</h2>
+            <p>Scholarship golf tournament, rafflem and awards ceremony with buffet.</p>
+            <h2>When:</h2>
+            <p>Monday, May 3, 2021</p>
+            <p>7:30 AM to 8:45 AM<br> Registration
+            </p>
+            <p>9:30 AM - Shotgun Start</p>
+            <h2>Where:</h2>
+            <p>Woodmont Golf and Country Club<br> 3015 Gaddis Road<br> Canton, GA 30115</p>
+            <h2>Format:</h2>
+            <p>The scramble format is a four-person best ball and is open to any golfer.</p>
+            <h2>Cost:</h2>
+            <p>$100 each</p>
+            <p>Mulligans are $10 each</p>
+            <h2>Details:</h2>
+            <p>Registration fees include: cart, lunch, awards luncheon, water, two drink tickets, green fees, cart fee and range balls. Club rentals are available for an additional fee.</p>
+        </section>
+
+        <header class="main">
+            <h2>Player Registration</h2>
+            <p>Please register by April 23, 2021.</p>
+        </header>
+
+        <section class="main">
+            <form method="post" name="golfregform" action="registration.php">
+
+                <label>Player 1 Name:</label>
+                <input id="p1name" name="p1name" placeholder=""><br>
+                <label>Player 1 Email:</label>
+                <input name="p1email" type="email" placeholder=""><br>
+                <label>Player 1 Phone:</label>
+                <input name="p1tel" type="tel" placeholder="nnn-nnn-nnnn"><br><br>
+
+                <label>Player 2 Name:</label>
+                <input name="p2name" placeholder=""><br>
+                <label>Player 2 Email:</label>
+                <input name="p2email" type="email" placeholder=""><br>
+                <label>Player 2 Phone:</label>
+                <input name="p2tel" type="tel" placeholder="nnn-nnn-nnnn"><br><br>
+
+                <label>Player 3 Name:</label>
+                <input name="p3name" placeholder=""><br>
+                <label>Player 3 Email:</label>
+                <input name="p3email" type="email" placeholder=""><br>
+                <label>Player 3 Phone:</label>
+                <input name="p3tel" type="tel" placeholder="nnn-nnn-nnnn"><br><br>
+
+                <label>Player 4 Name:</label>
+                <input name="p4name" placeholder=""><br>
+                <label>Player 4 Email:</label>
+                <input name="p4email" type="email" placeholder=""><br>
+                <label>Player 4 Phone:</label>
+                <input name="p4tel" type="tel" placeholder="nnn-nnn-nnnn"><br><br>
+
+                <label><strong>Mulligan Packages</strong> (please select quantity below):</label><br><br>
+                <input type="radio" id="mullzero" name="mulligan" value="0" checked="checked" onchange="mulligans()">
+                <label for="zero">Zero</label><br>
+                <input type="radio" id="mullone" name="mulligan" value="1" onchange="mulligans()">
+                <label for="one">One</label><br>
+                <input type="radio" id="mulltwo" name="mulligan" value="2" onchange="mulligans()">
+                <label for="two">Two</label><br>
+                <input type="radio" id="mullthree" name="mulligan" value="3" onchange="mulligans()">
+                <label for="three">Three</label><br>
+                <input type="radio" id="mullfour" name="mulligan" value="4" onchange="mulligans()">
+                <label for="four">Four</label><br><br>
+
+                <input id="submit" name="submit" type="submit" value="Submit">
+            </form>
+        </section>
+        <br>
+
+        <section class="main">
+            <h2>Sponsorship Signup</h2>
+            <p>Please select items below that you would like to sponsor:</p><br>
+
+            <input type="checkbox" id="goldsponsor" onclick="gold()" label for="goldsponsor"><strong> Gold Sponsor - Cost: $2,500</strong> <br><br> - Two (2) Foursomes<br> - Two (2) Hole Sponsorships<br> - One (1) Full page ad in the event program<br>            - Name in promotional materials<br> - Gold Recognition on tournament website<br> - Gold-level Business recognition gift<br>
+            <p id="textgold" style="display:none">Gold Sponsor is Selected!</p><br>
+
+
+            <input type="checkbox" id="silversponsor" onclick="silver()">
+            <label for="silversponsor"><strong> Silver Sponsor - Cost: $2,000</strong></label><br><br> - One (1) Foursome<br> - One (1) Hole Sponsorship<br> - One-half (1/2) page ad in the event program<br> - Name in promotional materials<br> - Silver
+            Recognition on tournament website<br> - Silver-level Business recognition gift<br>
+            <p id="textsilver" style="display:none">Silver Sponsor is Selected!</p><br>
+
+
+            <input type="checkbox" id="bronzesponsor" onclick="bronze()">
+            <label for="bronzesponsor"><strong> Bronze Sponsor - Cost: $1,500</strong></label><br><br> - One (1) Hole Sponsorship<br> - One-quarter (1/4) page ad in the event program<br> - Name in promotional material<br> - Bronze Recognition on tournament
+            website
+            <br> - Bronze-level Business recognition gift<br>
+            <p id="textbronze" style="display:none">Bronze Sponsor is Selected!</p><br>
+
+
+            <input type="checkbox" id="holeinone" onclick="ace()">
+            <label for="holeinone"><strong> Hole In One - Cost: $1,000</strong></label><br><br> - One (1) Hole Sponsorships<br> - One-quarter (1/4) page ad in the event program<br> - Name in promotional material<br> - Recognition on tournament website<br>
+            <p id="textace" style="display:none">Hole-in-One Sponsor is Selected!</p><br>
+
+
+            <input type="checkbox" id="lunchsponsor" onclick="lunch()">
+            <label for="lunchsponsor"><strong> Lunch Sponsor - Cost: $750</strong></label><br><br> - Name in promotional material<br> - Recognition on tournament website<br>
+            <p id="textlunch" style="display:none">Lunch Sponsor is Selected!</p><br>
+
+
+            <input type="checkbox" id="closesttopin" onclick="closest1()">
+            <label for="closesttopin"><strong> Closest To Pin Sponsor - Cost: $500</strong></label><br><br> - Name/Logo on Contest sign<br> - Name in promotional material<br>
+            <p id="textclosest" style="display:none">Closest to Pin Sponsor is Selected!</p><br>
+
+
+            <input type="checkbox" id="longestdrive" onclick="longest()">
+            <label for="longestdrive"><strong> Longest Drive Sponsor - Cost: $500</strong></label><br><br> - Name/Logo on Contest sign<br> - Name in promotional material<br>
+            <p id="textlongest" style="display:none">Longest Drive Sponsor is Selected!</p><br>
+
+
+            <input type="checkbox" id="golfcart" onclick="cart()">
+            <label for="golfcart"><strong> Golf Cart Sponsor - Cost: $500</strong></label><br><br> - Name/Logo on Contest sign<br> - Name in promotional materials<br>
+            <p id="textcart" style="display:none">Golf Cart Sponsor is Selected!</p><br>
+
+
+            <input type="checkbox" onclick="hole()" id="holesponsor">
+            <label for="holesponsor"><strong> Hole Sponsor - Cost: $125</strong></label><br><br> - Name/Logo on Contest sign<br> - Name in promotional material<br>
+            <p id="texthole" style="display:none">Hole Sponsor is Selected!</p><br>
+        </section>
+
+        <script>
+            var totalcost = 0.00;
+            var myCost = 0.00;
+            var pentry = "";
+            var mullcost = 0.00;
+            var paypalcost = 0.00;
+            var curmullcost = 0.00;
+            var p1added = false;
+            var p2added = false;
+            var p3added = false;
+            var p4added = false;
+
+            /* function addplayer() {
+                alert("adding player")
+                if (pentry === "") {
+                    alert("player added");
+                    (document.getElementById("p1entry").value.length != 0)
+                    totalcost = totalcost + 100.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+                    p1added = true
+                }
+            } */
+
+            function mulligans() {
+                mullcost = 0.00;
+                totalcost = totalcost - curmullcost;
+                if (document.getElementById('mullzero').checked) {
+                    mullcost = 0.00;
+                } else if (document.getElementById('mullone').checked) {
+                    mullcost = 20.00;
+                } else if (document.getElementById('mulltwo').checked) {
+                    mullcost = 40.00;
+                } else if (document.getElementById('mullthree').checked) {
+                    mullcost = 60.00;
+                } else if (document.getElementById('mullfour').checked) {
+                    mullcost = 80.00;
+                }
+                curmullcost = mullcost;
+                totalcost = totalcost + mullcost;
+                document.getElementById("myCost").innerHTML = totalcost;
+            }
+
+            function gold() {
+                if (goldsponsor.checked == true) {
+                    textgold.style.display = "block";
+                    textgold.style.color = "red";
+                    totalcost = totalcost + 2500.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+
+                } else {
+                    textgold.style.display = "none";
+                    totalcost = totalcost - 2500.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+                }
+            }
+
+            function silver() {
+                if (silversponsor.checked == true) {
+                    textsilver.style.display = "block";
+                    textsilver.style.color = "red";
+                    totalcost = totalcost + 2000.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+                } else {
+                    textsilver.style.display = "none";
+                    totalcost = totalcost - 2000.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+                }
+            }
+
+            function bronze() {
+                if (bronzesponsor.checked == true) {
+                    textbronze.style.display = "block";
+                    textbronze.style.color = "red";
+                    totalcost = totalcost + 1500.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+                } else {
+                    textbronze.style.display = "none";
+                    totalcost = totalcost - 1500.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+                }
+            }
+
+            function ace() {
+                if (holeinone.checked == true) {
+                    textace.style.display = "block";
+                    textace.style.color = "red";
+                    totalcost = totalcost + 1000.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+                } else {
+                    textace.style.display = "none";
+                    totalcost = totalcost - 1000.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+                }
+            }
+
+            function lunch() {
+                if (lunchsponsor.checked == true) {
+                    textlunch.style.display = "block";
+                    textlunch.style.color = "red";
+                    totalcost = totalcost + 750.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+                } else {
+                    textlunch.style.display = "none";
+                    totalcost = totalcost - 750.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+                }
+            }
+
+            function closest1() {
+                if (closesttopin.checked == true) {
+                    textclosest.style.display = "block";
+                    textclosest.style.color = "red";
+                    totalcost = totalcost + 500.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+                } else {
+                    textclosest.style.display = "none";
+                    totalcost = totalcost - 500.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+                }
+            }
+
+            function longest() {
+                if (longestdrive.checked == true) {
+                    textlongest.style.display = "block";
+                    textlongest.style.color = "red";
+                    text = "Longest Drive Sponsor Selected: $500";
+                    totalcost = totalcost + 500.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+                } else {
+                    textlongest.style.display = "none";
+                    totalcost = totalcost - 500.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+                }
+            }
+
+            function cart() {
+                if (golfcart.checked == true) {
+                    textcart.style.display = "block";
+                    textcart.style.color = "red";
+                    totalcost = totalcost + 500.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+                } else {
+                    textcart.style.display = "none";
+                    totalcost = totalcost - 500.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+                }
+            }
+
+            function hole() {
+                if (holesponsor.checked == true) {
+                    texthole.style.display = "block";
+                    texthole.style.color = "red";
+                    totalcost = totalcost + 125.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+                } else {
+                    texthole.style.display = "none";
+                    totalcost = totalcost - 125.00;
+                    document.getElementById("myCost").innerHTML = totalcost;
+                }
+            }
+        </script>
+
+        <h3>Your total cost is: $<span id='myCost'></span></h3><br>
+
+        <h4>Click Send below to send an email to register, then be sure to pay in advance using the PayPal Button below!</h4>
+
+        <input type="submit" value="Send"><br><br>
+
+    </section>
+
+    <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="business" value="PBEQBJ5ZQ3RDG">
+        <input type="hidden" name="item_name" value="Golf Tournament">
+        <input type="hidden" name="amount" type="text" id='myCost'>
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    </form> -->
+
+    <div id="smart-button-container">
+        <div style="text-align: center;">
+            <div id="paypal-button-container"></div>
+        </div>
+    </div>
+    <script src="https://www.paypal.com/sdk/js?client-id=ARZ5Q1k8dAVfc_J96CCVUCL-WpMXLldOdAtqZGKMMZjQ-NJkKZtXyIoeg4A-ocR2OZ9Dz-bVzDSrakgA&currency=USD" data-sdk-integration-source="button-factory"></script>
+    <script>
+        function initPayPalButton() {
+            paypal.Buttons({
+                style: {
+                    shape: 'rect',
+                    color: 'gold',
+                    layout: 'vertical',
+                    label: 'paypal',
+
+                },
+
+                createOrder: function(data, actions) {
+                    alert(totalcost)
+                    return actions.order.create({
+                        purchase_units: [{
+                            "description": "Golf Tournament",
+                            "amount": {
+                                "currency_code": "USD",
+                                "value": totalcost
+                            }
+                        }]
+                    });
+                },
+
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                    });
+                },
+
+                onError: function(err) {
+                    console.log(err);
+                }
+            }).render('#paypal-button-container');
+        }
+        initPayPalButton();
+    </script>
+
+
+
+</body>
+
+</html>
