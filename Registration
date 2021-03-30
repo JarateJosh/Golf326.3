@@ -1,0 +1,38 @@
+<?php
+$play1name = $_POST['p1name'];
+$play1email = $_POST['p1email'];
+$play1tel = $_POST['p1tel'];
+$play2name = $_POST['p2name'];
+$play2email = $_POST['p2email'];
+$play2tel = $_POST['p2tel'];
+$play3name = $_POST['p3name'];
+$play3email = $_POST['p3email'];
+$play3tel = $_POST['p3tel'];
+$play4name = $_POST['p4name'];
+$play4email = $_POST['p4email'];
+$play4tel = $_POST['p4tel'];
+$mullpkg = $_POST['mulligan'];
+
+$email_from = 'Golf Registration';
+$email_subject = 'Golf Registration';
+$email_body = "Player 1 Name: $play1name.\n".
+              "Player 1 Email: $play1email.\n".
+              "Player 1 Tel: $play1tel.\n".
+              "Player 2 Name: $play2name.\n".
+              "Player 2 Email: $play2email.\n".
+              "Player 2 Tel: $play2tel.\n".
+              "Player 3 Name: $play3name.\n".
+              "Player 3 Email: $play3email.\n".
+              "Player 3 Tel: $play3tel.\n".
+              "Player 4 Name: $play4name.\n".
+              "Player 4 Email: $play4email.\n".
+              "Player 4 Tel: $play4tel.\n".
+              "Mulligans Purchased: $mullpkg.\n";
+
+$to ="jimmy.carver59@yahoo.com";
+$headers = "From: $email_from \r\n";
+$headers .= "Reply-To: $play1email \r\n";
+
+mail($to,$email_subject,$email_body,$headers);
+
+?>
